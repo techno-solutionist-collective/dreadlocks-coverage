@@ -1,0 +1,23 @@
+  <html>
+    <body>
+      <script>
+        (async () => {
+          const path = window.location.pathname.split('/').slice(2).join('/');
+          const response = await fetch();
+          const data = await response.json();
+
+          const ul = document.createElement('ul');
+          for (const file of data) {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.setAttribute('href', encodeURI(file.path));
+            a.textContent = file.name;
+            li.appendChild(a);
+            ul.appendChild(li);
+          }
+
+          document.body.appendChild(ul);
+        })()
+      </script>
+    <body>
+  </html>

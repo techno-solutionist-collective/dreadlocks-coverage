@@ -6,7 +6,7 @@
     <body>
       <script>
         (async () => {
-          let path = window.location.pathname.split('/').slice(2).join('/');
+          let path = window.location.pathname.split('/').slice(2).filter((x) => x !== '').join('/');
           let response = await fetch('https://api.github.com/repos/techno-solutionist-collective/dreadlocks-coverage/contents/' + path);
           let data = await response.json();
 
